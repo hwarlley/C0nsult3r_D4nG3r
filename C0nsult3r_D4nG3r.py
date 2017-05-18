@@ -418,6 +418,7 @@ def printar_detalhesPLACA(PLACA):
 print('')
 print(cyanClaro+Baner)
 escolha = raw_input(vermelho+"☪ Escolha uma das opções: ")
+escolha = str(escolha)
 ###################################################################################################
 try:
 	if escolha == '1':
