@@ -1,9 +1,9 @@
 #coding: utf-8
+# -*- coding:utf-8 -*-
 import requests
 import json
 import sys
 import os
-from threading import Thread
 cyanClaro="\033[1;36m"
 vermelho = '\033[31;1m'
 verde = '\033[32;1m'
@@ -157,51 +157,155 @@ def printar_detalhes(cnpj):
 	print(verde+'+ ================================================================================== +')
 	print('\n'+verde+'               Atividade Principal!..[./]\n')
 	print(verde+'+ ================================================================================== +\n')
-	print(vermelho+'Comerce:'+normal, amarelo+ cnpj['atividade_principal'][0]['text']+normal )
-	print(vermelho+'ID/Codigo:'+normal, amarelo+ cnpj['atividade_principal'][0]['code']+normal )
-	print(vermelho+'Situação Data:'+normal, amarelo+ cnpj['data_situacao']+normal+'\n')
-
+	try:
+		print(vermelho+'Comerce:'+normal, amarelo+ cnpj['atividade_principal'][0]['text']+normal )
+	except:
+		pass
+	try:
+		print(vermelho+'ID/Codigo:'+normal, amarelo+ cnpj['atividade_principal'][0]['code']+normal )
+	except:
+		pass
+	try:
+		print(vermelho+'Situação Data:'+normal, amarelo+ cnpj['data_situacao']+normal+'\n')
+	except:
+		pass
 	print(vermelho+'+ ================================================================================== +')
 	print(vermelho+'\n'+vermelho+'          Detalhes Sobre o Comercio..[./]\n')
 	print('+ ================================================================================== +\n')
-	print(verde+'Sobre: '+normal, cyanClaro+cnpj['atividades_secundarias'][0]['text'])
-	print(verde+'Sobre: '+normal, cyanClaro+cnpj['atividades_secundarias'][1]['text'])
-	print(verde+'sobre:'+normal, cyanClaro+cnpj['atividades_secundarias'][2]['text']+'\n')
-
+	
+	try:
+		print(verde+'Sobre: '+normal, cyanClaro+cnpj['atividades_secundarias'][0]['text'])
+	except:
+		pass
+	try:
+		print(verde+'Sobre: '+normal, cyanClaro+cnpj['atividades_secundarias'][1]['text'])
+	except:
+		pass
+	try:	
+		print(verde+'sobre:'+normal, cyanClaro+cnpj['atividades_secundarias'][2]['text']+'\n')
+	except:
+		pass
 	print(amarelo+'+ ================================================================================== +')
 	print(amarelo+'\n'+amarelo+'          Detalhes Sobre Proprietários..[./]\n')
 	print('+ ================================================================================== +\n')
-	print(amarelo+'Cargo e Associação: '+normal,verde+cnpj['qsa'][0]['qual'])
-	print(amarelo+'Dados e informações adicionais: '+normal,verde+cnpj['qsa'][0]['nome'])
-	print(amarelo+'Cargo e Associação: '+normal,verde+cnpj['qsa'][1]['qual'])
-	print(amarelo+'Dados e informações adicionais: '+normal,verde+cnpj['qsa'][1]['nome'])
-	print(amarelo+'Cargo e Associação: '+normal,verde+cnpj['qsa'][2]['qual'])
-	print(amarelo+'Dados e informações adicionais: '+normal,verde+cnpj['qsa'][2]['nome']+'\n')
+	
+	try:
+		print(amarelo+'Cargo e Associação: '+normal,verde+cnpj['qsa'][0]['qual'])
+	except:
+		pass
+	try:
+		print(amarelo+'Dados e informações adicionais: '+normal,verde+cnpj['qsa'][0]['nome'])
+	except:
+		pass
+	try:
+		print(amarelo+'Cargo e Associação: '+normal,verde+cnpj['qsa'][1]['qual'])
+	except:
+		pass
+	try:
+		print(amarelo+'Dados e informações adicionais: '+normal,verde+cnpj['qsa'][1]['nome'])
+	except:
+		pass
+	try:
+		print(amarelo+'Cargo e Associação: '+normal,verde+cnpj['qsa'][2]['qual'])
+	except:
+		pass
+	try:
+		print(amarelo+'Dados e informações adicionais: '+normal,verde+cnpj['qsa'][2]['nome']+'\n')
+	except:
+		pass
+
 	print(purpleClaro+'+ ================================================================================== +')
 	print('\n'+purpleClaro+'          Dados e Informações Complementares..[./]\n')
 	print(purpleClaro+'+ ================================================================================== +\n')			
-	print(cyanClaro+'Situação: '+normal,vermelho+cnpj['situacao'])
-	print(cyanClaro+'Bairro: '+normal,vermelho+cnpj['bairro'])
-	print(cyanClaro+'logradouro: '+normal,vermelho+cnpj['logradouro'])
-	print(cyanClaro+'Numero da Casa: '+normal,vermelho+cnpj['numero'])
-	print(cyanClaro+'Cep: '+normal,vermelho+cnpj['cep'])
-	print(cyanClaro+'Municipio: '+normal,vermelho+cnpj['municipio'])
-	print(cyanClaro+'Data de Abertura: '+normal,vermelho+cnpj['abertura'])
-	print(cyanClaro+'Natureza Juridica: '+normal,vermelho+cnpj['natureza_juridica'])
-	print(cyanClaro+'fantasia: '+normal,vermelho+cnpj['fantasia'])
-	print(cyanClaro+'CNPJ: '+normal,vermelho+cnpj['cnpj'])
-	print(cyanClaro+'Data de Abertura: '+normal,vermelho+cnpj['abertura'])
-	print(cyanClaro+'Ultima Atualizaçao (Data): '+normal,vermelho+cnpj['ultima_atualizacao'])
-	print(cyanClaro+'Status: '+normal,vermelho+cnpj['status'])
-	print(cyanClaro+'Tipo: '+normal,vermelho+cnpj['tipo'])
-	print(cyanClaro+'complemento: '+normal,vermelho+cnpj['complemento'])
-	print(cyanClaro+'Email: '+normal,vermelho+cnpj['email'])
-	print(cyanClaro+'Telefone: '+normal,vermelho+cnpj['telefone'])
-	print(cyanClaro+'EFR: '+normal,vermelho+cnpj['efr'])
-	print(cyanClaro+'Motivo Situação: '+normal,vermelho+cnpj['motivo_situacao'])
-	print(cyanClaro+'Situação Especial: '+normal,vermelho+cnpj['situacao_especial'])
-	print(cyanClaro+'Situação Especial (Data): '+normal,vermelho+cnpj['data_situacao_especial'])
-	print(cyanClaro+'Capital Social: '+normal,vermelho+cnpj['capital_social'])
+	
+	try:
+		print(cyanClaro+'Situação: '+normal,vermelho+cnpj['situacao'])
+	except:
+		pass
+	try:
+		print(cyanClaro+'Bairro: '+normal,vermelho+cnpj['bairro'])
+	except:
+		pass
+	try:
+		print(cyanClaro+'logradouro: '+normal,vermelho+cnpj['logradouro'])
+	except:
+		pass
+	try:
+		print(cyanClaro+'Numero da Casa: '+normal,vermelho+cnpj['numero'])
+	except:
+		pass
+	try:
+		print(cyanClaro+'Cep: '+normal,vermelho+cnpj['cep'])
+	except:
+		pass
+	try:
+		print(cyanClaro+'Municipio: '+normal,vermelho+cnpj['municipio'])
+	except:
+		pass
+	try:
+		print(cyanClaro+'Data de Abertura: '+normal,vermelho+cnpj['abertura'])
+	except:
+		pass	
+	try:
+		print(cyanClaro+'Natureza Juridica: '+normal,vermelho+cnpj['natureza_juridica'])
+	except:
+		pass	
+	try:
+		print(cyanClaro+'fantasia: '+normal,vermelho+cnpj['fantasia'])
+	except:
+		pass	
+	try:
+		print(cyanClaro+'CNPJ: '+normal,vermelho+cnpj['cnpj'])
+	except:
+		pass	
+	try:
+		print(cyanClaro+'Data de Abertura: '+normal,vermelho+cnpj['abertura'])
+	except:
+		pass	
+	try:
+		print(cyanClaro+'Ultima Atualizaçao (Data): '+normal,vermelho+cnpj['ultima_atualizacao'])
+	except:
+		pass
+	try:		
+		print(cyanClaro+'Status: '+normal,vermelho+cnpj['status'])
+	except:
+		pass	
+	try:
+		print(cyanClaro+'Tipo: '+normal,vermelho+cnpj['tipo'])
+	except:
+		pass
+	try:		
+		print(cyanClaro+'complemento: '+normal,vermelho+cnpj['complemento'])
+	except:
+		pass
+	try:			
+		print(cyanClaro+'Email: '+normal,vermelho+cnpj['email'])
+	except:
+		pass
+	try:		
+		print(cyanClaro+'Telefone: '+normal,vermelho+cnpj['telefone'])
+	except:
+		pass
+	try:		
+		print(cyanClaro+'EFR: '+normal,vermelho+cnpj['efr'])
+	except:
+		pass
+	try:		
+		print(cyanClaro+'Motivo Situação: '+normal,vermelho+cnpj['motivo_situacao'])
+	except:
+		pass
+	try:		
+		print(cyanClaro+'Situação Especial: '+normal,vermelho+cnpj['situacao_especial'])
+	except:
+		pass	
+	try:
+		print(cyanClaro+'Situação Especial (Data): '+normal,vermelho+cnpj['data_situacao_especial'])
+	except:
+		pass
+	try:		
+		print(cyanClaro+'Capital Social: '+normal,vermelho+cnpj['capital_social'])
+	except:
+		pass	
 	print(purpleClaro+'+ ================================================================================== +\n')		
 ################################################################################################################################
 ######         BIN BIN BIN BIN                                                                                             #####
@@ -313,13 +417,13 @@ def printar_detalhesPLACA(PLACA):
 
 print('')
 print(cyanClaro+Baner)
-escolha = input(vermelho+"☪ Escolha uma das opções: ")
+escolha = raw_input(vermelho+"☪ Escolha uma das opções: ")
 ###################################################################################################
 try:
 	if escolha == '1':
 		os.system('clear')
 		print (vermelho+CNPJBANER)
-		op = input(vermelho + '        ☪ Escreva Uma CNPJ Válid0: '+normal).upper()
+		op = raw_input(vermelho + '        ☪ Escreva Uma CNPJ Válid0: '+normal).upper()
 		try:
 			cnpj = requisicao(op)
 			printar_detalhes(cnpj)
@@ -329,7 +433,7 @@ try:
 	elif escolha == '2':
 		os.system('clear')
 		print(purpleClaro+BINBANER)
-		op = input(purpleClaro + '        ☪ Escreva Uma Bin Válida: '+normal).upper()
+		op = raw_input(purpleClaro + '        ☪ Escreva Uma Bin Válida: '+normal).upper()
 		try:
 			BIN = requisicao2(op)
 			printar_detalhesBIN(BIN)
@@ -339,7 +443,7 @@ try:
 	elif escolha == '3':
 		os.system('clear')
 		print(verde+PLACABANER)
-		op = input(verde + '        ☪ Escreva Uma PLACA Válida: '+normal)
+		op = raw_input(verde + '        ☪ Escreva Uma PLACA Válida: '+normal)
 		try:
 			PLACA = requisicao3(op)
 			printar_detalhesPLACA(PLACA)
@@ -349,7 +453,7 @@ try:
 	elif escolha == '4':
 		os.system('clear')
 		print(amarelo+FILMESBANER)
-		op = input(amarelo + '☪ Escreva Um FILME Válid0: '+normal)
+		op = raw_input(amarelo + '☪ Escreva Um FILME Válid0: '+normal)
 		try:
 			filme = requisicao4(op)
 			printar_detalhesFILME(filme)
